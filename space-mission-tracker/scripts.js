@@ -45,12 +45,31 @@ const distressUrgentTwo = missions.find( function (m) {
 console.log(distressUrgentTwo)
 
 //   forEach: Add a glowing CSS effect to each active mission div
+const activeMs = missions.forEach(m => { if (m.distress) {console.log(`Mission active: ${m.astronaut} - ${m.destination}`)}})
+console.log(activeMs)
 
+const activeMsTwo = missions.forEach( function (m) {
+    if (m.distress) {
+        console.log(`Mission active: ${m.astronaut} - ${m.destination}`)
+}
+})
+console.log(activeMsTwo)
+//   some: Check if any mission has low fuel (< 10 units)
+const lowFuel = missions.some(m => {return m.fuel < 10})
+console.log(lowFuel)
 
-//   some: Check if any mission has low fuel (<10 units)
-
+const lowFuelTwo = missions.some( function (m) {
+    return m.fuel < 10
+})
+console.log(lowFuelTwo)
 
 //   includes: Verify if “Mars” is in the mission destinations
+const mars = missions.some(m => Object.values(m).includes("Mars"))
+console.log(mars)
 
+const marsTwo = missions.some( function (m) {
+    return Object.values(m).includes('Mars')
+})
+console.log(marsTwo)
 
 //   every: Ensure all astronauts have completed training
