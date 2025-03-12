@@ -40,9 +40,11 @@ const missions = [
 
 //   map: Transform astronaut names into “Commander [Name]” for display
 const commanders = missions.map((m) => {
-  return `Commander ${m.astronaut}`;
+  return ` Commander ${m.astronaut} `;
 });
-console.log(commanders);
+// console.log(commanders);
+document.querySelector("#commanders").innerHTML = commanders
+
 
 const commandersTwo = missions.map(function (m) {
   return `Commander ${m.astronaut}`;
@@ -53,7 +55,9 @@ console.log(commandersTwo);
 const total = missions.reduce((sum, m) => {
   return sum + m.fuel;
 }, 0);
-console.log(`Total fuel: ${total}`);
+// console.log(`Total fuel: ${total}`);
+document.querySelector("#total-fuel").innerHTML = total
+
 
 const totalTwo = missions.reduce(function (sum, m) {
   return sum + m.fuel;
@@ -64,7 +68,9 @@ console.log(`Total fuel: ${totalTwo}`);
 const alienArray = missions.filter((m) => {
   return m.encounters > 50;
 });
-console.log(alienArray);
+// console.log(alienArray);
+const alienArrayHtml = alienArray.map(m => `<li> ${m.astronaut} - ${m.encounters} </li>`).join(" ")
+document.querySelector("#alien-encounters").innerHTML = `<ul> ${alienArrayHtml} </ul>`
 
 const alienArrayTwo = missions.filter(function (m) {
   return m.encounters > 50;
@@ -75,7 +81,9 @@ console.log(alienArrayTwo);
 const distressUrgent = missions.find((m) => {
   return m.distress == true;
 });
-console.log(distressUrgent);
+// console.log(distressUrgent);
+const distressUrgentHtml = distressUrgent ? `${distressUrgent.astronaut}: ${distressUrgent.encounters} aliens`: 'None found for now'
+document.querySelector("#distress-signal").innerHTML = distressUrgentHtml
 
 const distressUrgentTwo = missions.find(function (m) {
   return m.distress == true;
@@ -88,7 +96,12 @@ const activeMs = missions.forEach((m) => {
     console.log(`Mission active: ${m.astronaut} - ${m.destination}`);
   }
 });
-console.log(activeMs);
+// console.log(activeMs);
+let activeMsHtml = "";
+missions.forEach(m => {
+  activeMsHtml += `<li> Mission Active: ${m.astronaut} - ${m.destination}</li>`;
+});
+document.querySelector("#alien-encounters").innerHTML = `<ul>${activeMsHtml}</ul>`;
 
 const activeMsTwo = missions.forEach(function (m) {
   if (m.distress) {
@@ -100,7 +113,8 @@ console.log(activeMsTwo);
 const lowFuel = missions.some((m) => {
   return m.fuel < 10;
 });
-console.log(`Low mission fuel: ${lowFuel}`);
+// console.log(`Low mission fuel: ${lowFuel}`);
+document.querySelector("#low-fuel").innerHTML = `Low mission fuel: ${lowFuel}`
 
 const lowFuelTwo = missions.some(function (m) {
   return m.fuel < 10;
@@ -109,7 +123,8 @@ console.log(`Low mission fuel: ${lowFuelTwo}`);
 
 //   includes: Verify if “Mars” is in the mission destinations
 const mars = missions.some((m) => Object.values(m).includes('Mars'));
-console.log(mars);
+// console.log(mars);
+document.querySelector("#mars").innerHTML = mars
 
 const marsTwo = missions.some(function (m) {
   return Object.values(m).includes('Mars');
@@ -120,7 +135,8 @@ console.log(marsTwo);
 const trainingComplete = missions.every((m) => {
   return m.training == true;
 });
-console.log(`Training complete: ${trainingComplete}`);
+// console.log(`Training complete: ${trainingComplete}`);
+document.querySelector("#mars").innerHTML = `Training complete: ${trainingComplete}`
 
 const trainingCompleteTwo = missions.every(function (m) {
   return m.training == true;
