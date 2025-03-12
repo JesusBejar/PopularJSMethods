@@ -19,5 +19,6 @@ A collection of vanilla JS demos for array methods like `map`, `filter`, and mor
 - `filter`, `forEach` and `find` are surprisingly complicated when you want to inject them into the DOM
 - `map` is a beastmode method, you can make and inject lists directly into the DOM
 - `reduce` is great for summing large quantities
+
 [Live Demo](https://github.com/JesusBejar) *(Coming soon!)*
 
