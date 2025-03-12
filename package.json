@@ -1,0 +1,12 @@
+{
+  "name": "array-methods-showcase",
+  "version": "1.0.0",
+  "description": "Showcase of JS array methods with vanilla JS, HTML, CSS",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,html,css}\"",
+    "check-format": "prettier --check \"**/*.{js,html,css}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
