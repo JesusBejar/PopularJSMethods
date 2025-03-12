@@ -16,13 +16,33 @@ const commandersTwo = missions.map(function (m) {
 console.log(commandersTwo)
 
 //   reduce: Calculate total fuel spent across missions
+const total = missions.reduce((sum, m) => { return sum + m.fuel }, 0)
+console.log(`Total fuel: ${total}`)
 
+const totalTwo = missions.reduce(function (sum, m) {
+    return sum + m.fuel
+}, 0)
+console.log(`Total fuel: ${totalTwo}`)
 
-//   filter: Show only astronauts with >50 alien encounters
+//   filter: Show only astronauts with > 50 alien encounters
+const alienArray = missions.filter(m => { return m.encounters > 50 })
+console.log(alienArray)
 
+const alienArrayTwo = missions.filter(function (m) {
+    return m.encounters > 50
+})
+console.log(alienArrayTwo)
 
 //   find: Locate the first mission with a distress signal
+const distressUrgent = missions.find(m => {
+    return m.distress == true
+})
+console.log(distressUrgent)
 
+const distressUrgentTwo = missions.find( function (m) {
+    return m.distress == true
+})
+console.log(distressUrgentTwo)
 
 //   forEach: Add a glowing CSS effect to each active mission div
 
